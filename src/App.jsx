@@ -7,12 +7,14 @@ import './styles/App.scss';
 
 function App() {
   const getYear = new Date().getFullYear();
+
   const alarm = new Audio('https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3');
-  const bip = new Audio('https://www.soundjay.com/phone/sounds/cell-phone-flip-1.mp3');
 
   const [countMin, setCountMin] = useState(0);
   const [countSec, setCountSec] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [control, setControl] = useState();
+  const [audio, setAudio] = useState(new Audio('/src/assets/medieval-song.mp3'));
 
   const minute = useRef();
   const second = useRef();
@@ -32,13 +34,26 @@ function App() {
     setCountMin(0);
     setCountSec(0);
     setIsRunning(false);
+    audio.pause();
+    setControl(0);
   };
 
   useEffect(() => {
     let interval = null;
+
+    if (isRunning === true && control === 0) {
+      audio.play();
+      setControl(1);
+    }
+
+    if (control === 1 && !isRunning) {
+      audio.pause();
+      audio.currentTime = 0;
+      setControl(0);
+    }
+
     if (isRunning && countMin >= 0 && countSec > 0) {
       interval = setInterval(() => {
-        bip.play();
         setCountSec(() => countSec - 1);
       }, 1000);
     } else if (isRunning && countMin > 0 && countSec === 0) {
@@ -46,7 +61,11 @@ function App() {
       setCountSec(() => 59);
     } else if (!isRunning && countSec !== 0) {
       clearInterval(interval);
+      audio.pause();
+      setControl(0);
     } else if (isRunning && countMin === 0 && countSec === 0) {
+      audio.pause();
+      setControl(0);
       alarm.play();
       clearInterval(interval);
       alert('ACABOOOOOOOU!');
