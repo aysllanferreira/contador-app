@@ -1,0 +1,20 @@
+.Footer{
+  margin-top: 4rem;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+
+  span{
+    color: #d30000;
+    font-size: 30px;
+  }
+
+  a{
+    color: #5c0054;
+    text-decoration: none;
+
+    &:hover{
+      color: #d100c0;
+    }
+  }
+}
