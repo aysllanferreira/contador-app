@@ -46,6 +46,7 @@ function App() {
 
     if (control === 0 && isRunning) {
       audio.play();
+      audio.loop = true;
       setControl(1);
     }
 
