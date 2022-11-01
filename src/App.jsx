@@ -46,6 +46,7 @@ function App() {
     } else if (isRunning && countMin === 0 && countSec === 0) {
       clearInterval(interval);
       alert('ACABOOOOOOOU!');
+      setIsRunning(false);
     }
     return () => clearInterval(interval);
   }, [countMin, countSec, isRunning]);
