@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Footer from './component/Footer';
 import Counter from './component/Counter';
 import './styles/App.scss';
+import myaudio from './assets/medieval-song.mp3';
 
 function App() {
   const getYear = new Date().getFullYear();
@@ -14,7 +15,7 @@ function App() {
   const [countSec, setCountSec] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [control, setControl] = useState();
-  const [audio, setAudio] = useState(new Audio('/src/assets/medieval-song.mp3'));
+  const [audio, setAudio] = useState(new Audio(myaudio));
 
   const minute = useRef();
   const second = useRef();
@@ -43,6 +44,7 @@ function App() {
 
     if (isRunning === true && control === 0) {
       audio.play();
+      audio.loop = true;
       setControl(1);
     }
 
