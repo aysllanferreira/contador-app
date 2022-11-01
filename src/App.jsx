@@ -14,7 +14,7 @@ function App() {
   const [countMin, setCountMin] = useState(0);
   const [countSec, setCountSec] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
-  const [control, setControl] = useState();
+  const [control, setControl] = useState(0);
   // eslint-disable-next-line no-unused-vars
   const [audio, setAudio] = useState(new Audio(myaudio));
 
@@ -44,9 +44,8 @@ function App() {
   useEffect(() => {
     let interval = null;
 
-    if (isRunning === true && control === 0) {
+    if (control === 0 && isRunning) {
       audio.play();
-      audio.loop = true;
       setControl(1);
     }
 
