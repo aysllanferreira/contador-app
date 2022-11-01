@@ -36,6 +36,7 @@ function App() {
     setCountSec(0);
     setIsRunning(false);
     audio.pause();
+    audio.currentTime = 0;
     setControl(0);
   };
 
@@ -64,9 +65,11 @@ function App() {
     } else if (!isRunning && countSec !== 0) {
       clearInterval(interval);
       audio.pause();
+      audio.currentTime = 0;
       setControl(0);
     } else if (isRunning && countMin === 0 && countSec === 0) {
       audio.pause();
+      audio.currentTime = 0;
       setControl(0);
       alarm.play();
       clearInterval(interval);
