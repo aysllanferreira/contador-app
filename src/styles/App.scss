@@ -9,7 +9,7 @@
 .App {
   width: 100vw;
   height: 100vh;
-  background: #6C7A89;
+  background: url('../assets/rainGif.gif') no-repeat center center fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,5 +20,11 @@
     margin-bottom: 5rem;
     font-size: 60px;
     color: #ebebeb;
+    border: solid 1px black;
+    border-radius: 20px;
+    background-color: #00000086;
+    padding: 40px;
   }
+
+
 }

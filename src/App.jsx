@@ -15,6 +15,7 @@ function App() {
   const [countSec, setCountSec] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [control, setControl] = useState();
+  // eslint-disable-next-line no-unused-vars
   const [audio, setAudio] = useState(new Audio(myaudio));
 
   const minute = useRef();

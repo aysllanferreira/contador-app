@@ -1,8 +1,11 @@
 .Footer{
   margin-top: 4rem;
   color: #fff;
-  padding: 20px;
+  padding: 30px;
   text-align: center;
+  border: solid 1px black;
+  border-radius: 20px;
+  background-color: #00000086;
 
   span{
     color: #d30000;
@@ -10,11 +13,11 @@
   }
 
   a{
-    color: #5c0054;
+    color: #e400d1;
     text-decoration: none;
 
     &:hover{
-      color: #d100c0;
+      color: #74006a;
     }
   }
 }
