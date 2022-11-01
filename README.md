@@ -1,6 +1,7 @@
 # Contador App
 
-Este projeto foi desenvolvido por Aysllan Ferreira, enquanto estudante na Trybe, com o propósito de cumprir um desafio e também praticar as habilidades em React.
+Este projeto foi desenvolvido por Aysllan Ferreira, enquanto estudante na Trybe, com o propósito de cumprir um desafio e também praticar as habilidades em React. <br> <br>
+[Link do Projeto](https://contador-app.vercel.app/)
 
 # Orientações
 
