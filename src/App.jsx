@@ -7,6 +7,8 @@ import './styles/App.scss';
 
 function App() {
   const getYear = new Date().getFullYear();
+  const alarm = new Audio('https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3');
+  const bip = new Audio('https://www.soundjay.com/phone/sounds/cell-phone-flip-1.mp3');
 
   const [countMin, setCountMin] = useState(0);
   const [countSec, setCountSec] = useState(0);
@@ -36,6 +38,7 @@ function App() {
     let interval = null;
     if (isRunning && countMin >= 0 && countSec > 0) {
       interval = setInterval(() => {
+        bip.play();
         setCountSec(() => countSec - 1);
       }, 1000);
     } else if (isRunning && countMin > 0 && countSec === 0) {
@@ -44,6 +47,7 @@ function App() {
     } else if (!isRunning && countSec !== 0) {
       clearInterval(interval);
     } else if (isRunning && countMin === 0 && countSec === 0) {
+      alarm.play();
       clearInterval(interval);
       alert('ACABOOOOOOOU!');
       setIsRunning(false);
